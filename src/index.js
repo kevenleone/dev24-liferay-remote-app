@@ -1,17 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import HelloBar from "./routes/hello-bar/pages/HelloBar";
+import HelloFoo from "./routes/hello-foo/pages/HelloFoo";
+import HelloWorld from "./routes/hello-world/pages/HelloWorld";
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+import "./common/styles/index.scss";
+
+const App = ({ route }) => {
+  if (route === "hello-bar") {
+    return <HelloBar />;
+  }
+
+  if (route === "hello-foo") {
+    return <HelloFoo />;
+  }
+
+  return <HelloWorld />;
+};
+
+class WebComponent extends HTMLElement {
+  connectedCallback() {
+    ReactDOM.render(<App route={this.getAttribute("route")} />, this);
+  }
+}
+
+const ELEMENT_ID = "liferay-dev24";
+
+if (!customElements.get(ELEMENT_ID)) {
+  customElements.define(ELEMENT_ID, WebComponent);
+}

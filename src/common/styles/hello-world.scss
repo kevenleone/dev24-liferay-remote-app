@@ -1,0 +1,65 @@
+header {
+  background-color: #30313f;
+  height: 300px;
+}
+
+.todos {
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 10px 6px -6px #777;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 20px;
+
+  .todo-list {
+    margin-top: 20px;
+
+    div {
+      background-color: #dadada;
+      border-radius: 2px;
+      margin-bottom: 15px;
+      padding: 10px;
+    }
+  }
+}
+
+nav {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.brand {
+  color: white;
+  font-size: 24px;
+}
+
+.cards {
+  margin-top: -180px;
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul {
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  color: white;
+  font-size: 18px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  margin-right: 30px;
+  cursor: pointer;
+
+  &.active {
+    border-bottom: 2px solid #c16d93;
+  }
+}
